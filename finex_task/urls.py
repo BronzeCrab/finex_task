@@ -16,7 +16,7 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 from django.contrib.auth import views as auth_views
-from blog.views import EntryListView, AllEntryListView
+from blog.views import EntryListView, AllEntryListView, LikeView
 from django.contrib.auth.decorators import login_required
 
 urlpatterns = [
@@ -26,5 +26,7 @@ urlpatterns = [
         name="all_entries"),
     url(r'^entries/$', login_required(EntryListView.as_view()),
         name="entries"),
+    url(r'^like/(?P<user_id>.*)/$', login_required(LikeView.as_view()),
+        name="like"),
     url(r'^admin/', admin.site.urls),
 ]

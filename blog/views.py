@@ -1,6 +1,9 @@
 from django.views.generic.list import ListView
-from .models import Entry
+from django.views import View
 from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
+from django.shortcuts import redirect
+
+from .models import Entry
 
 
 def get_paginated_pages(page, all_pages):
@@ -32,3 +35,21 @@ class AllEntryListView(ListView):
         all_entries = Entry.objects.order_by('-creation_date')
         all_entries = all_entries.filter(likes_count__gt=-1)
         return get_paginated_pages(page, all_entries)
+
+
+class LikeView(View):
+    def get(self, request, user_id):
+        action = request.GET.get('action')
+        entry_id = request.GET.get('entry_id')
+
+        entry = Entry.objects.get(pk=entry_id)
+        likes = entry.likes.split(',')
+        if user_id not in likes:
+            if action == "like":
+                entry.likes_count += 1
+            else:
+                entry.likes_count -= 1
+            likes.append(user_id)
+            entry.likes = ','.join(likes)
+            entry.save()
+        return redirect('all_entries')

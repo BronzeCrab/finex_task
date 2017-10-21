@@ -11,6 +11,7 @@
     {% else %}
       <i class="fa fa-thumbs-o-up" aria-hidden="true">{{entry.likes_count}}</i>
     {% endif %}
-    <span class="user_id" hidden>{{entry.user.id}}</p>
+    <span class="user_id" hidden>{{entry.user.id}}</span>
+    <span class="entry_id" hidden>{{entry.id}}</span>
   </div>
 {% endfor %}

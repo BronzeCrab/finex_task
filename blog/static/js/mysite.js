@@ -12,17 +12,18 @@ $(document).ready(function() {
     }
     // set active first element
     else {
-        console.log('here');
         $(".nav-link:first").addClass("active");
     }
 
     // like click
     $('.like').click(function(){
-        var id = $(this).siblings(".user_id").text();
+        var user_id = $(this).siblings(".user_id").text();
+        var entry_id = $(this).siblings(".entry_id").text();
         $.ajax({
-            url : "/like/"+id, // the endpoint
+            url : "/like/"+user_id, // the endpoint
             type : "GET", // http method
-            data : { action : "like" },
+            data : {action: "like",
+                    entry_id: entry_id},
             success: function(json) {
               if(json.error) return;
                 $(document).ajaxStop(function() { location.reload(true); });
@@ -32,11 +33,13 @@ $(document).ready(function() {
 
     // dislike click
     $('.dislike').click(function(){
-        var id = $(this).siblings(".user_id").text();     
+        var user_id = $(this).siblings(".user_id").text();
+        var entry_id = $(this).siblings(".entry_id").text();
         $.ajax({
-            url : "/like/"+id, // the endpoint
+            url : "/like/"+user_id, // the endpoint
             type : "GET", // http method
-            data : { action : "dislike" },
+            data : {action: "dislike",
+                    entry_id: entry_id},
             success: function(json) {
               if(json.error) return;
                 $(document).ajaxStop(function() { location.reload(true); });
