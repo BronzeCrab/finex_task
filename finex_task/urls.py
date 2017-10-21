@@ -16,10 +16,15 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 from django.contrib.auth import views as auth_views
-from blog.views import EntryListView
+from blog.views import EntryListView, AllEntryListView
+from django.contrib.auth.decorators import login_required
 
 urlpatterns = [
     url(r'^$', auth_views.login, name='login'),
-    url(r'^entries/$', EntryListView.as_view(), name="entries"),
+    url(r'^logout/$', auth_views.logout, name='logout'),
+    url(r'^all_entries/$', login_required(AllEntryListView.as_view()),
+        name="all_entries"),
+    url(r'^entries/$', login_required(EntryListView.as_view()),
+        name="entries"),
     url(r'^admin/', admin.site.urls),
 ]
