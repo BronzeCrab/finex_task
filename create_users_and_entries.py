@@ -3,7 +3,7 @@ from blog.models import Entry
 import lorem
 
 users = []
-for i in range(10):
+for i in range(100):
     user = User(username="user_{0}".format(i), is_staff=True)
     user.set_password("user_{0}".format(i))
     users.append(user)

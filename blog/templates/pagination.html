@@ -19,136 +19,136 @@
     {% else %}
       {% if object_list.number == 1 %}
         <li class="page-item active">
-          <a class="page-link" href="page=1">1</a>
+          <a class="page-link" href="?page=1">1</a>
         </li>
         <li class="page-item">
-          <a class="page-link" href="page=2">2</a>
+          <a class="page-link" href="?page=2">2</a>
         </li>
         <li class="page-item">
           <a class="page-link">...</a>
         </li>
         <li class="page-item">
-          <a class="page-link" href="page={{object_list.paginator.page_range|penult}}">{{object_list.paginator.page_range|penult}}</a>
+          <a class="page-link" href="?page={{object_list.paginator.page_range|penult}}">{{object_list.paginator.page_range|penult}}</a>
         </li>
         <li class="page-item">
-          <a class="page-link" href="page={{object_list.paginator.page_range|last}}">{{object_list.paginator.page_range|last}}</a>
+          <a class="page-link" href="?page={{object_list.paginator.page_range|last}}">{{object_list.paginator.page_range|last}}</a>
         </li>
       {% elif object_list.number == 2 %}
         <li class="page-item">
-          <a class="page-link" href="page=1">1</a>
+          <a class="page-link" href="?page=1">1</a>
         </li>
         <li class="page-item active">
-          <a class="page-link" href="page=2">2</a>
+          <a class="page-link" href="?page=2">2</a>
         </li>
         <li class="page-item">
-          <a class="page-link" href="page=3">3</a>
+          <a class="page-link" href="?page=3">3</a>
         </li>
         <li class="page-item">
           <a class="page-link">...</a>
         </li>
         <li class="page-item">
-          <a class="page-link" href="page={{object_list.paginator.page_range|penult}}">{{object_list.paginator.page_range|penult}}</a>
+          <a class="page-link" href="?page={{object_list.paginator.page_range|penult}}">{{object_list.paginator.page_range|penult}}</a>
         </li>
         <li class="page-item">
-          <a class="page-link" href="page={{object_list.paginator.page_range|last}}">{{object_list.paginator.page_range|last}}</a>
+          <a class="page-link" href="?page={{object_list.paginator.page_range|last}}">{{object_list.paginator.page_range|last}}</a>
         </li>
       {% elif object_list.number == 3 %}
         <li class="page-item">
-          <a class="page-link" href="page=1">1</a>
+          <a class="page-link" href="?page=1">1</a>
         </li>
         <li class="page-item">
-          <a class="page-link" href="page=2">2</a>
+          <a class="page-link" href="?page=2">2</a>
         </li>
         <li class="page-item active">
-          <a class="page-link" href="page={{object_list.number}}">{{object_list.number}}</a>
+          <a class="page-link" href="?page={{object_list.number}}">{{object_list.number}}</a>
         </li>
         <li class="page-item">
-          <a class="page-link" href="page=4">4</a>
+          <a class="page-link" href="?page=4">4</a>
         </li>
         <li class="page-item">
           <a class="page-link">...</a>
         </li>
         <li class="page-item">
-          <a class="page-link" href="page={{object_list.paginator.page_range|last}}">{{object_list.paginator.page_range|last}}</a>
+          <a class="page-link" href="?page={{object_list.paginator.page_range|last}}">{{object_list.paginator.page_range|last}}</a>
         </li>
       {% elif object_list.number == object_list.paginator.page_range|penult_penult %}
         <li class="page-item">
-          <a class="page-link" href="page=1">1</a>
+          <a class="page-link" href="?page=1">1</a>
         </li>
         <li class="page-item">
-          <a class="page-link" href="page=2">2</a>
+          <a class="page-link" href="?page=2">2</a>
         </li>
         <li class="page-item">
           <a class="page-link">...</a>
         </li>
         <li class="page-item">
-          <a class="page-link" href="page={{object_list.paginator.page_range|penult_penult_penult}}">{{object_list.paginator.page_range|penult_penult_penult}}</a>
+          <a class="page-link" href="?page={{object_list.paginator.page_range|penult_penult_penult}}">{{object_list.paginator.page_range|penult_penult_penult}}</a>
         </li>
         <li class="page-item active">
-          <a class="page-link" href="page={{object_list.paginator.page_range|penult_penult}}">{{object_list.paginator.page_range|penult_penult}}</a>
+          <a class="page-link" href="?page={{object_list.paginator.page_range|penult_penult}}">{{object_list.paginator.page_range|penult_penult}}</a>
         </li>
         <li class="page-item">
-          <a class="page-link" href="page={{object_list.paginator.page_range|penult}}">{{object_list.paginator.page_range|penult}}</a>
+          <a class="page-link" href="?page={{object_list.paginator.page_range|penult}}">{{object_list.paginator.page_range|penult}}</a>
         </li>
         <li class="page-item">
-          <a class="page-link" href="page={{object_list.paginator.page_range|last}}">{{object_list.paginator.page_range|last}}</a>
+          <a class="page-link" href="?page={{object_list.paginator.page_range|last}}">{{object_list.paginator.page_range|last}}</a>
         </li>
       {% elif object_list.number == object_list.paginator.page_range|penult %}
         <li class="page-item">
-          <a class="page-link" href="page=1">1</a>
+          <a class="page-link" href="?page=1">1</a>
         </li>
         <li class="page-item">
-          <a class="page-link" href="page=2">2</a>
+          <a class="page-link" href="?page=2">2</a>
         </li>
         <li class="page-item">
           <a class="page-link">...</a>
         </li>
         <li class="page-item">
-          <a class="page-link" href="page={{object_list.paginator.page_range|penult_penult}}">{{object_list.paginator.page_range|penult_penult}}</a>
+          <a class="page-link" href="?page={{object_list.paginator.page_range|penult_penult}}">{{object_list.paginator.page_range|penult_penult}}</a>
         </li>
         <li class="page-item active">
-          <a class="page-link" href="page={{object_list.paginator.page_range|penult}}">{{object_list.paginator.page_range|penult}}</a>
+          <a class="page-link" href="?page={{object_list.paginator.page_range|penult}}">{{object_list.paginator.page_range|penult}}</a>
         </li>
         <li class="page-item">
-          <a class="page-link" href="page={{object_list.paginator.page_range|last}}">{{object_list.paginator.page_range|last}}</a>
+          <a class="page-link" href="?page={{object_list.paginator.page_range|last}}">{{object_list.paginator.page_range|last}}</a>
         </li>
       {% elif object_list.number == object_list.paginator.page_range|last %}
         <li class="page-item">
-          <a class="page-link" href="page=1">1</a>
+          <a class="page-link" href="?page=1">1</a>
         </li>
         <li class="page-item">
-          <a class="page-link" href="page=2">2</a>
+          <a class="page-link" href="?page=2">2</a>
         </li>
         <li class="page-item">
           <a class="page-link">...</a>
         </li>
         <li class="page-item">
-          <a class="page-link" href="page={{object_list.paginator.page_range|penult}}">{{object_list.paginator.page_range|penult}}</a>
+          <a class="page-link" href="?page={{object_list.paginator.page_range|penult}}">{{object_list.paginator.page_range|penult}}</a>
         </li>
         <li class="page-item active">
-          <a class="page-link" href="page={{object_list.paginator.page_range|last}}">{{object_list.paginator.page_range|last}}</a>
+          <a class="page-link" href="?page={{object_list.paginator.page_range|last}}">{{object_list.paginator.page_range|last}}</a>
         </li>
       {% else %}
         <li class="page-item">
-          <a class="page-link" href="page=1">1</a>
+          <a class="page-link" href="?page=1">1</a>
         </li>
         <li class="page-item">
           <a class="page-link">...</a>
         </li>
         <li class="page-item">
-          <a class="page-link" href="page={{object_list.number|get_minus_one}}">{{object_list.number|get_minus_one}}</a>
+          <a class="page-link" href="?page={{object_list.number|get_minus_one}}">{{object_list.number|get_minus_one}}</a>
         </li>
         <li class="page-item active">
-          <a class="page-link" href="page={{object_list.number}}">{{object_list.number}}</a>
+          <a class="page-link" href="?page={{object_list.number}}">{{object_list.number}}</a>
         </li>
         <li class="page-item">
-          <a class="page-link" href="page={{object_list.number|get_plus_one}}">{{object_list.number|get_plus_one}}</a>
+          <a class="page-link" href="?page={{object_list.number|get_plus_one}}">{{object_list.number|get_plus_one}}</a>
         </li>
        <li class="page-item">
           <a class="page-link">...</a>
         </li>
         <li class="page-item">
-          <a class="page-link" href="page={{object_list.paginator.page_range|last}}">{{object_list.paginator.page_range|last}}</a>
+          <a class="page-link" href="?page={{object_list.paginator.page_range|last}}">{{object_list.paginator.page_range|last}}</a>
         </li>
       {% endif %}
     {% endif %}
