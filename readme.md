@@ -11,3 +11,8 @@
 	- python manage.py shell
 		- import create_users_and_entries
 	- python manage.py runserver
+
+# Как протестить API:
+	- `curl --data "password=user_0&username=user_0" http://localhost:8000/api-token-auth/`
+	- Поместить полученный токен в скрипт test_api.py
+	- `python3 test_api.py`

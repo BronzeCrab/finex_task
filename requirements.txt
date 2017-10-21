@@ -2,3 +2,4 @@ Django==1.11.6
 lorem==0.1.1
 django-bootstrap-form==3.3
 djangorestframework==3.7.1
+requests==2.18.4
