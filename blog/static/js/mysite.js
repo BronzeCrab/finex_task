@@ -17,10 +17,9 @@ $(document).ready(function() {
 
     // like click
     $('.like').click(function(){
-        var user_id = $(this).siblings(".user_id").text();
         var entry_id = $(this).siblings(".entry_id").text();
         $.ajax({
-            url : "/like/"+user_id, // the endpoint
+            url : "/like", // the endpoint
             type : "GET", // http method
             data : {action: "like",
                     entry_id: entry_id},
@@ -33,10 +32,9 @@ $(document).ready(function() {
 
     // dislike click
     $('.dislike').click(function(){
-        var user_id = $(this).siblings(".user_id").text();
         var entry_id = $(this).siblings(".entry_id").text();
         $.ajax({
-            url : "/like/"+user_id, // the endpoint
+            url : "/like", // the endpoint
             type : "GET", // http method
             data : {action: "dislike",
                     entry_id: entry_id},

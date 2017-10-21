@@ -16,7 +16,10 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 from django.contrib.auth import views as auth_views
-from blog.views import EntryListView, AllEntryListView, LikeView
+from blog.views import (EntryListView, AllEntryListView,
+                        LikeView, BestLastMonthListView,
+                        BestLastYearListView,
+                        BestAllTimeListView)
 from django.contrib.auth.decorators import login_required
 
 urlpatterns = [
@@ -26,7 +29,13 @@ urlpatterns = [
         name="all_entries"),
     url(r'^entries/$', login_required(EntryListView.as_view()),
         name="entries"),
-    url(r'^like/(?P<user_id>.*)/$', login_required(LikeView.as_view()),
+    url(r'^like/$', login_required(LikeView.as_view()),
         name="like"),
+    url(r'^best_last_month/$', login_required(BestLastMonthListView.as_view()),
+        name="best_last_month"),
+    url(r'^best_last_year/$', login_required(BestLastYearListView.as_view()),
+        name="best_last_year"),
+    url(r'^best_all_time/$', login_required(BestAllTimeListView.as_view()),
+        name="best_all_time"),
     url(r'^admin/', admin.site.urls),
 ]
