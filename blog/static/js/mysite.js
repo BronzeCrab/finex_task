@@ -15,4 +15,33 @@ $(document).ready(function() {
         console.log('here');
         $(".nav-link:first").addClass("active");
     }
+
+    // like click
+    $('.like').click(function(){
+        var id = $(this).siblings(".user_id").text();
+        $.ajax({
+            url : "/like/"+id, // the endpoint
+            type : "GET", // http method
+            data : { action : "like" },
+            success: function(json) {
+              if(json.error) return;
+                $(document).ajaxStop(function() { location.reload(true); });
+            }
+        }); 
+    });
+
+    // dislike click
+    $('.dislike').click(function(){
+        var id = $(this).siblings(".user_id").text();     
+        $.ajax({
+            url : "/like/"+id, // the endpoint
+            type : "GET", // http method
+            data : { action : "dislike" },
+            success: function(json) {
+              if(json.error) return;
+                $(document).ajaxStop(function() { location.reload(true); });
+            }
+        }); 
+    });
+
 });

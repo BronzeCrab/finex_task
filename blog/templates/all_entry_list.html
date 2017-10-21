@@ -3,17 +3,16 @@
 
 {% block title %}Hello world{% endblock %}
 
+{% block css %}
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+{% endblock %}
+
 {% block nav %}
   {% include 'nav.html' %}
 {% endblock %}
 
 {% block content %}
-  {% for entry in object_list %}
-  	<h3>{{entry.user.username}}</h3>
-    <h4>{{entry.title}}</h4>
-    <p>{{entry.creation_date}}</p>
-    <p>{{entry.body}}</p>
-  {% endfor %}
+  {% include 'posts.html' %}
 {% endblock %}
 
 {% block pagination %}

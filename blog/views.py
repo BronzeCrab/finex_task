@@ -30,4 +30,5 @@ class AllEntryListView(ListView):
     def get_queryset(self):
         page = self.request.GET.get('page')
         all_entries = Entry.objects.order_by('-creation_date')
+        all_entries = all_entries.filter(likes_count__gt=-1)
         return get_paginated_pages(page, all_entries)

@@ -8,4 +8,9 @@ class Entry(models.Model):
     body = models.TextField()
     creation_date = models.DateTimeField(auto_now_add=True)
     likes = models.TextField()
+    likes_count = models.IntegerField(default=0)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
+
+    def save(self, *args, **kwargs):
+        self.likes_count = len(self.likes.split(','))
+        super(Entry, self).save(*args, **kwargs)
