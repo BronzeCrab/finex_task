@@ -6,7 +6,7 @@ from django.shortcuts import redirect
 from .models import Entry
 
 from .serializers import EntrySerializer
-from rest_framework import generics
+from rest_framework import generics, permissions
 
 from datetime import datetime, timedelta
 
@@ -106,12 +106,14 @@ class BestAllTimeListView(ListView):
 
 
 class EntryList(generics.ListCreateAPIView):
-    """API view - all etnries"""
+    """API view - все посты"""
+    permission_classes = (permissions.IsAuthenticated,)
     queryset = Entry.objects.all()
     serializer_class = EntrySerializer
 
 
 class EntryDetail(generics.RetrieveUpdateDestroyAPIView):
-    """API view - etnry"""
+    """API view - конкретный пост"""
+    permission_classes = (permissions.IsAuthenticated,)
     queryset = Entry.objects.all()
     serializer_class = EntrySerializer
