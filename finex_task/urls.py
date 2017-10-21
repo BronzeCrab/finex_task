@@ -13,7 +13,7 @@ Including another URLconf
     1. Import the include() function: from django.conf.urls import url, include
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
-from django.conf.urls import url
+from django.conf.urls import url, include
 from django.contrib import admin
 from django.contrib.auth import views as auth_views
 from blog.views import (EntryListView, AllEntryListView,
@@ -27,8 +27,8 @@ urlpatterns = [
     url(r'^logout/$', auth_views.logout, name='logout'),
     url(r'^all_entries/$', login_required(AllEntryListView.as_view()),
         name="all_entries"),
-    url(r'^entries/$', login_required(EntryListView.as_view()),
-        name="entries"),
+    url(r'^your_entries/$', login_required(EntryListView.as_view()),
+        name="your_entries"),
     url(r'^like/$', login_required(LikeView.as_view()),
         name="like"),
     url(r'^best_last_month/$', login_required(BestLastMonthListView.as_view()),
@@ -38,4 +38,5 @@ urlpatterns = [
     url(r'^best_all_time/$', login_required(BestAllTimeListView.as_view()),
         name="best_all_time"),
     url(r'^admin/', admin.site.urls),
+    url(r'^', include('blog.urls')),
 ]

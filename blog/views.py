@@ -5,6 +5,9 @@ from django.shortcuts import redirect
 
 from .models import Entry
 
+from .serializers import EntrySerializer
+from rest_framework import generics
+
 from datetime import datetime, timedelta
 
 
@@ -100,3 +103,15 @@ class BestAllTimeListView(ListView):
         all_entries = Entry.objects.filter(
             likes_count__gt=-1).order_by('-likes_count')
         return get_paginated_pages(page, all_entries)
+
+
+class EntryList(generics.ListCreateAPIView):
+    """API view - all etnries"""
+    queryset = Entry.objects.all()
+    serializer_class = EntrySerializer
+
+
+class EntryDetail(generics.RetrieveUpdateDestroyAPIView):
+    """API view - etnry"""
+    queryset = Entry.objects.all()
+    serializer_class = EntrySerializer
