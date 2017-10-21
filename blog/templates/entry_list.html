@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Hello world{% endblock %}
+
+{% block nav %}
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-item nav-link" href="{% url 'entries' %}">Ваши посты <span class="sr-only">(current)</span></a>
+      </div>
+    </div>
+  </nav>
+{% endblock %}
+
+{% block content %}
+  {% for entry in object_list %}
+    <h4>{{entry.title}}</h4>
+    <p>{{entry.creation_date}}</p>
+    <p>{{entry.body}}</p>
+  {% endfor %}
+{% endblock %}
+
+{% block js %}
+  <script src="{% static 'js/mysite.js' %}"></script>
+{% endblock %}

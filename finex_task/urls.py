@@ -15,7 +15,11 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
+from django.contrib.auth import views as auth_views
+from blog.views import EntryListView
 
 urlpatterns = [
+    url(r'^$', auth_views.login, name='login'),
+    url(r'^entries/$', EntryListView.as_view(), name="entries"),
     url(r'^admin/', admin.site.urls),
 ]
